@@ -48,7 +48,8 @@ free(y0);free(y0p); free(y1);free(y2);free(y2p);free(y_1);
 
 
 //main
-int main(){
+
+/*int main(){
 
 
 int n=4;int  m=2;
@@ -87,5 +88,5 @@ free(Tm);
 
 
 }
-
+*/
 

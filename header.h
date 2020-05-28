@@ -22,12 +22,14 @@ void inverse_matrice(double *A, int n); // inverser une matrice
 double norme_matricielle(double **A, int n);
 double norme_vec(double *tab, int n);
 void sort(double *t, int n );
-double erreur_check(double **A, double ** res,double *lambda, int n, int r, int *ind, int * ind2);
+//double erreur_check(double **A, double ** res,double *lambda, int n, int r, int *ind, int * ind2);
+double erreur_check(double **A, double ** res,double *lambda, int n, int r, int *ind);
 double ** copier( double **A, int n, int m);
 int *tri(double *tab, int m,int r);
 void normaliser_matrice_colonne(double **vec, int n, int r);
 int *tri2( double *t, int m, int r);
-
+void lanczos(double **A, double *x, double *val, double **vec, int n , int m , int r);
+double **construction_Tm( double **A,double *x, int n, int m, double **Vm);
 
 
 

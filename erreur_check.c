@@ -11,7 +11,7 @@ norme=sqrt(norme);
 return norme; 
 }
 
-double erreur_check(double **A, double ** res,double *lambda, int n, int r, int *ind, int *ind2){
+double erreur_check(double **A, double ** res,double *lambda, int n, int r, int *ind){
 double ** Id= malloc(n*sizeof(double*));
 for(int i=0; i<n;i++) Id[i]= malloc(n*sizeof(double));
  double *tab=malloc(r*sizeof(double));
@@ -29,18 +29,26 @@ if (i==j) Id[i][j]=1;
 
 
 for (int i=0 ; i<r ; i++){
-mat_scal(Id, -lambda[ind2[i]], Li,n);
+mat_scal(Id, -lambda[ind[i]], Li,n);
+//printf("Li\n");
+//afficher_matrice(Li,n,n);
 add_matrice(A,Li ,M,n);
+//printf("M\n");
 //afficher_matrice(M,n,n);
 for (int k=0;k<n; k++) tmp[k]=res[k][ind[i]];
+//printf("tmp\n");
+//afficher_tableau(tmp,n);
 tmp2=mat_vec(M,tmp,n,n);
-//afficher_tableau( tmp2, n );
+
 tab[i]=norme_vec(tmp2,n);
 }
-//printf("tab\n");
-//afficher_tableau( tab, m );
-sort(tab,r);
-return tab[0];
+printf("tab\n");
+afficher_tableau( tab, r );
+//sort(tab,r);
+int * ind2=malloc(r*sizeof(int));
+ind=tri2(tab,r,r);
+return tab[ind2[0]];
+free(ind2);
 // desallouer
 for(int i=0; i<n;i++) free(Id[i]);
 free(Id);

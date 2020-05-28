@@ -15,7 +15,6 @@ for (int i=0; i<m-1;i++){
     // Recherche du max à droite de module[i]
     PMAX=i;
     for (int j=i+1;j<m;j++)
-     // if (fabs(tab[j])>fabs(tab[PMAX])) PMAX=j;
       if ((tab[j])>(tab[PMAX])) PMAX=j;
     // Echange de module[i] avec le max
     aide=tab[i];
